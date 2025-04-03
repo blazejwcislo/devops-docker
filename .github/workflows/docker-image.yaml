@@ -27,8 +27,8 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t ortheon/my-spring-app-blazej:latest
+        docker buildx build -t yourdockerhubusername/my-spring-app-blazej:latest .
 
     - name: Push Docker image to Docker Hub
       run: |
-        docker push ortheon/my-spring-app-blazej:latest  
+        docker push ortheon/my-spring-app-blazej:latest .
