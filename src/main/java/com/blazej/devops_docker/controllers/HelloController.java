@@ -1,3 +1,5 @@
+package com.blazej.devops_docker.controllers;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +41,10 @@ public class HelloController {
     public String getDevOps() {
         String devOpsUsername = System.getenv("DEVOPS");
         return "DevOps Username: " + devOpsUsername;
+    }
+
+    @GetMapping("/")
+    public String defaultController() {
+        return "Hello Blazej ";
     }
 }

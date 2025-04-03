@@ -4,7 +4,7 @@ ENV DEVOPS=Blazej
 
 WORKDIR /app
 
-COPY build/libs/docker-0.0.1-SNAPSHOT.jar app.jar
+COPY target/devops-docker-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 8080
 
