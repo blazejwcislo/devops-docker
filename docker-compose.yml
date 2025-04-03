@@ -1,0 +1,25 @@
+services:
+  web:
+    image: nginx
+    ports:
+      - "${WEB_PORT}:80"
+
+  database:
+    image: postgres
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+
+  app:
+    image: ortheon/my-spring-app
+    ports:
+      - "${APP_PORT}:8080"
+    depends_on:
+      - database
+    environment:
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
